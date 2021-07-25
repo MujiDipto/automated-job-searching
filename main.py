@@ -21,8 +21,8 @@ username = driver.find_element_by_name('username') # find the username field
 password = driver.find_element_by_id("password") #find password field
 
 # enter login credentials
-username.send_keys("######")
-password.send_keys("##########")
+username.send_keys("s4496137")
+password.send_keys("Godofwar27")
 # click the login button
 driver.find_element_by_name("submit").click()
 
@@ -31,7 +31,7 @@ driver.implicitly_wait(10) # wait for the page to load
 more_search_options = driver.find_element_by_css_selector('#home-feature > div > form > div:nth-child(2) > div > div > ul > li > a > span')
 more_search_options.click()
 
-# set "Residency Requirements to All candidates including icleanternational students"
+# set "Residency Requirements to All candidates including international students"
 select = Select(driver.find_element_by_id('residency'))
 select.select_by_value('All candidates considered including international students')
 
@@ -48,17 +48,16 @@ containers = driver.find_elements_by_class_name("list-group-item")
 for items in containers:
     titles = items.find_elements_by_tag_name('h4')
     companies = items.find_elements_by_tag_name('h5')
-    info = driver.find_elements_by_class_name("job-list-info")
+    info = items.find_elements_by_class_name("job-list-info")
     for title, name, i in zip(titles, companies, info):
         job_titles.append(title)
         company_names.append(name)
         job_info.append(i)
-
+    
 
 for title, name, info in zip(job_titles, company_names, job_info ):
     text = colored(title.text, 'green', attrs=['reverse'])
     print(text)
-    # print(colored(title.text, 'green'))
     print(colored(name.text, 'yellow'))
     print(info.text)
     print("\n")
