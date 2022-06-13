@@ -21,8 +21,8 @@ username = driver.find_element_by_name('username') # find the username field
 password = driver.find_element_by_id("password") #find password field
 
 # enter login credentials
-username.send_keys("s4496137")
-password.send_keys("Godofwar27")
+username.send_keys("####")
+password.send_keys("####")
 # click the login button
 driver.find_element_by_name("submit").click()
 
